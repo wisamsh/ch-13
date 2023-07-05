@@ -158,6 +158,7 @@ class Tasks
         return new WP_REST_Response($response, 200, $headers);
     }
 
+//Adding a task============================================================:
 
     protected function addTask($title, $date, $description)
     {
@@ -213,4 +214,43 @@ class Tasks
 
         return new WP_REST_Response($response, 200, $headers);
     }
+//END ADDING TASK=============================================================================
+
+//SOFT DELETATION : 
+protected function DeleteTask($id){
+$rtn = false;
+    if(isset($id) && $id !=""){
+    $rtn = update_field('field_64a522b78065f', true, $id);
+}
+return $rtn;
+}
+
+
+public function Task_api_callback_delete(){
+   $id = $_REQUEST['id'];
+   if(isset($id) && $id !=""){
+    $rtn = $this->DeleteTask($id);
+  
+   
+   
+   $response = array(
+        'task' =>  $rtn=true ? 'success' : 'error',
+
+    );
+
+}
+    $headers = array(
+        'Content-Type' => 'application/json; charset=utf-8',
+
+    );
+
+    return new WP_REST_Response($response, 200, $headers);
+}
+
+
+
+
+
+
+
 }
