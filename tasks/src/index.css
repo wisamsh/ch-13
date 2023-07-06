@@ -1,0 +1,111 @@
+:root {
+  --main-bg : #dddddd1c;
+  --bluish : #00aaff8c;
+  --grayesh:#87999dde;
+  --task-title:#cd5e0dc7;
+  --task-date:#000;
+}
+body {
+  padding:20px;
+  margin: 0;
+  font-family: poppins;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.mainContainer{
+  max-width: 1000px;
+  margin:0 auto;
+  border-radius: 20px;
+  border: solid 1px #ddd;
+  margin-top:50px;
+  background-color: var(--main-bg);
+  
+}
+.modal-opener{
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: none;
+  background: none;
+
+}
+.plus-icon{
+  color:var(--bluish);
+  cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+  .plus-icon{
+    position: fixed;
+    top: 10px;
+    left:1px;
+  }
+  .task_container h1 span{
+    width:90%;
+    text-align: right;
+    display: block;
+  }
+
+}
+@media only screen and (min-width: 769px) {
+ .plus-icon-wrapp{
+  height: 100%;
+ }
+  .plus-icon{
+    position: sticky;
+    top: 10px;
+    
+  }
+
+  
+}
+
+.close-modal-btn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  color: var(--grayesh);
+}
+
+.task_container{
+
+  border:solid 1px #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin:10px;
+  background-color: #fff;
+position: relative;
+}
+
+.edit, .del {
+  margin-left:15px;
+}
+.switcher{
+  position: absolute;
+  right:10px;
+}
+.task_container h1{
+font-size: 20px;
+font-family: 'poppins bold';
+font-weight:bold ;
+margin-bottom: 10px;
+border-bottom: solid 1px #ddd;
+color: var(--task-title);
+}
+
+.task_container h1 span{
+  font-size: 10px;
+  margin-left: 20px;
+  color: var(--task-date);
+  font-weight: 100;
+}
+
+.task_container p{
+
+}
