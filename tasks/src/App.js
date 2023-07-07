@@ -22,7 +22,6 @@ function App() {
     <section className="section">
       <div className="columns">
         <div className="column is-four-fifths">
-        
         <TaskList/>
         </div>
         <div className="column"></div>

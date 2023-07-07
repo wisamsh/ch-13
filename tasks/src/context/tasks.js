@@ -1,6 +1,6 @@
 import { createContext, useState, useCallback } from "react";
 import axios from "axios";
-
+import { ApiUri } from '../Constants/Constants';
 
 
 const TaskContext = createContext();
@@ -8,7 +8,7 @@ const TaskContext = createContext();
 function Provider({ children }) {
    
     //Please Change That To Your LocalHost...
-    let uri = 'http://10.100.102.23/channel13/serverside/wp-json/task-api/v1/task';
+    let uri = ApiUri + 'serverside/wp-json/task-api/v1/task';
     
     const [tasks, setTasks] = useState([]);
 

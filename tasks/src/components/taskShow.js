@@ -1,14 +1,12 @@
 import { useState } from "react";
 import useTasksContext from '../hooks/use-task-conext'; //HOOK CONTEXT
-import { MdDelete } from "react-icons/md";
 import { CiEdit } from "react-icons/ci"
 import Switch from '@mui/material/Switch';
-
+import DeleteTask from './delete-task';
 
 
 function TaskShow({ task }) {
-console.log(task);
-    const { deleteTaskById } = useTasksContext();
+
     
 
 
@@ -31,13 +29,10 @@ console.log(task);
     }
 
 
-    const handleDeleteClick = () => {
-        deleteTaskById(task.id);
-    }
 
     return <div className="task_container" id={task.task_ID}>
         <div className="stip">
-            <span className="del"><MdDelete/></span>
+            <span className="del"> <DeleteTask id={task.task_ID}/></span>
             <span className="edit"><CiEdit/></span>
             <span className="switcher">
             <Switch 

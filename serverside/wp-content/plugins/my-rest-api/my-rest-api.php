@@ -5,7 +5,7 @@ Description: Task REST API endpoint (This Plugin Using ACF Plugin Fields!).
 Version: 1.0.0
 Author: Wisam Shomar
 */
-error_reporting(0);
+
 
 // Exit if accessed directly
 if (!defined('ABSPATH')) {

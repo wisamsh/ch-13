@@ -75,6 +75,8 @@ class Tasks
         $task_description = get_field('field_64a43217928b9', $id);
         $deleted_task = get_field('field_64a522b78065f', $id);
 
+    // soft deletation and non data lost :
+
         if (!$deleted_task) {
             $ARRrtn = array(
                 'task_ID'=> $task_ID,
@@ -98,6 +100,7 @@ class Tasks
             $args = array(
                 'post_type' => 'task-api',
                 'posts_per_page' => -1,
+                
             );
 
             $res = get_posts($args);

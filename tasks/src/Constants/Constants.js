@@ -1,0 +1,1 @@
+export const ApiUri = 'http://10.100.102.23/channel13/';
