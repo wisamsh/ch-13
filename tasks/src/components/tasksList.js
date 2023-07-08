@@ -1,9 +1,12 @@
-import React from 'react';
+import React , {useState}from 'react';
 import TaskShow from './taskShow';
 import useTasksContext from '../Hooks/use-task-conext';
 import { MutatingDots } from 'react-loader-spinner'
 function TaskList() {
   const { tasks } = useTasksContext();
+
+const [EditStatus, setEditStatus] = useState(false);
+
 
   if (tasks === null || tasks.length === 0) {
     // Tasks are still being fetched, display a loading state
@@ -23,7 +26,7 @@ function TaskList() {
 
   const renderedTasks = tasks.map((task) => (
     
-      <TaskShow task={task} key={task.task_ID} />
+      <TaskShow task={task} key={task.task_ID}  />
    
   ));
   
