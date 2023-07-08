@@ -162,7 +162,20 @@ class Tasks
 
     protected function UpdateTask($id)
     {
-        return $id;
+        $rtn = false;
+        $state = $_REQUEST['state'];//$title, $date, $description, $status
+        
+        if($state == 'status' && isset($_REQUEST['state']) && trim($_REQUEST['state'] ) !=''){
+          return  update_field('field_64a42ea6928b7', $_REQUEST['status'], $id);
+          
+            
+        }
+        if($state == 'all'){
+            
+        }
+        
+        
+       // return $id;
     }
 
 
@@ -200,7 +213,7 @@ class Tasks
         if (!is_wp_error($post_id)) {
 
             update_field('field_64a43204928b8', $title, $post_id); //updating title
-            update_field('field_64a42ea6928b7', 'Uncomplete', $post_id); //updating status
+           // update_field('field_64a42ea6928b7', false, $post_id); //updating status
             update_field('field_64a43234928ba', $date, $post_id); //updating date
             update_field('field_64a43217928b9', $description, $post_id); //updating description
 

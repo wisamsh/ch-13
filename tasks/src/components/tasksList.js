@@ -1,6 +1,6 @@
 import React from 'react';
 import TaskShow from './taskShow';
-import useTasksContext from '../hooks/use-task-conext';
+import useTasksContext from '../Hooks/use-task-conext';
 import { MutatingDots } from 'react-loader-spinner'
 function TaskList() {
   const { tasks } = useTasksContext();
@@ -17,15 +17,13 @@ function TaskList() {
     wrapperStyle={{}}
     wrapperClass=""
     visible={true}
-   />
-
-    
+   /> 
   }
 
 
   const renderedTasks = tasks.map((task) => (
     
-      <TaskShow task={task} />
+      <TaskShow task={task} key={task.task_ID} />
    
   ));
   

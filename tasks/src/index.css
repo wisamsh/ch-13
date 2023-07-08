@@ -4,7 +4,7 @@
   --grayesh:#87999dde;
   --task-title:#cd5e0dc7;
   --task-date:#000;
-  --dialog-confirm-deletation:#a4a7c1f2;
+  --dialog-confirm-deletation:#fffffff2;
 ;
 }
 body {
@@ -181,4 +181,23 @@ width: 120px;
     font-size: 14px;
     font-family: 'poppins';
     margin:2px;
+}
+
+.status{
+  font-size: 10px;
+  font-family: 'poppins';
+  position: absolute;
+  right: 54px;
+  top: 6px;
+  
+}
+
+.swithcer_state{
+  top:-5px;
+}
+
+.edittaskbox form h4{
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
 }

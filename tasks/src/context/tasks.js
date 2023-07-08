@@ -17,59 +17,12 @@ function Provider({ children }) {
         setTasks(response.data.task);
       }, []);
 
-    //Fixing Callbacks in browser====
-    const StabledfetchTasks = useCallback(fetchTasks, []);
-
-    const editTaskById = async (id, newTitle) => {
-
-        const response = await axios.put((uri + "/" + id), {
-            title: newTitle
-        });
-
-        //i can do this : fetchTasks();
-        //But this is better and lighter===========================
-        const updatetasks = tasks.map((task) => {
-            if (id === task.task_ID && newTitle !== '') {
-                return { ...task, ...response.data.task }
-            }
-            return task;
-        })
-        setTasks(updatetasks);
-        //===========================================================
-    };
-
-
-    const deletetaskById = async (id) => {
-        const response = await axios.delete(uri + "/" + id);
-        const updatetasks = tasks.filter((task) => {
-          return id !== task.task_ID;
-        });
-        setTasks(updatetasks);
-      };
-
-    const creattask = async (title) => {
-
-        if (title !== '') {
-            const response = await axios.post(uri, {
-                title
-            });
-            //console.log(response);
-
-            const updateBoos = [
-                ...tasks,
-                response.data.task
-            ];
-
-            setTasks(updateBoos)
-        }
-
-    };
+   
+    
     const valueToShare = {
         tasks,
-        deletetaskById,
-        editTaskById,
         fetchTasks,
-        creattask
+        
 
     };
 

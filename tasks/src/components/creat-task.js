@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import TaskContext from "../context/tasks";
+import TaskContext from "../Context/tasks";
 import { useEffect, useContext, useCallback } from "react";
 import { ApiUri } from '../Constants/Constants';
 function FormComponent({CloseModal, Key}) {
@@ -62,14 +62,14 @@ function FormComponent({CloseModal, Key}) {
   <div className="field">
     <label className="label">Task Title</label>
     <div className="control">
-      <input className="input" name="title" type="text" placeholder="Title" value={formData.title} onChange={handleChange}/>
+      <input className="input" name="title" type="text" placeholder="Title" defaultValue={formData.title} onChange={handleChange}/>
     </div>
   </div>
 
   <div className="field">
     <label className="label">Date</label>
     <div className="control">
-    <input className="date" type="date" name="date" value={formData.date} onChange={handleChange} />
+    <input className="date" type="date" name="date" defaultValue={formData.date} onChange={handleChange} />
     </div>
   </div>
 
@@ -77,7 +77,18 @@ function FormComponent({CloseModal, Key}) {
   <div className="field">
     <label className="label">Description</label>
     <div className="control">
-    <textarea className="input" name="desc" type="text"  value={formData.desc} onChange={handleChange}></textarea>
+    <textarea 
+    className="input"
+     name="desc" 
+     type="text" 
+      defaultValue={formData.desc} onChange={handleChange}
+      style={{
+                        minHeight: '100px',
+                        resize: "none"
+                      }}
+      >
+
+      </textarea>
     </div>
   </div>
 

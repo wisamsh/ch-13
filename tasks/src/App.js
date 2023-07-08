@@ -1,8 +1,8 @@
 import 'bulma/css/bulma.css';
 import { useEffect, useContext, useCallback } from "react";
-import Modal from './components/modal';
-import TaskList from './components/tasksList';
-import TaskContext from "./context/tasks";
+import Modal from './Components/modal';
+import TaskList from './Components/tasksList';
+import TaskContext from "./Context/tasks";
 
 
 function App() {
