@@ -75,11 +75,11 @@ class Tasks
         $task_description = get_field('field_64a43217928b9', $id);
         $deleted_task = get_field('field_64a522b78065f', $id);
 
-    // soft deletation and non data lost :
+        // soft deletation and non data lost :
 
         if (!$deleted_task) {
             $ARRrtn = array(
-                'task_ID'=> $task_ID,
+                'task_ID' => $task_ID,
                 'task_title' => $task_title,
                 'task_status' => $task_status,
                 'task_date' => $task_date,
@@ -100,7 +100,7 @@ class Tasks
             $args = array(
                 'post_type' => 'task-api',
                 'posts_per_page' => -1,
-                
+
             );
 
             $res = get_posts($args);
@@ -163,19 +163,36 @@ class Tasks
     protected function UpdateTask($id)
     {
         $rtn = false;
-        $state = $_REQUEST['state'];//$title, $date, $description, $status
-        
-        if($state == 'status' && isset($_REQUEST['state']) && trim($_REQUEST['state'] ) !=''){
-          return  update_field('field_64a42ea6928b7', $_REQUEST['status'], $id);
-          
-            
+        $state = $_REQUEST['state']; //$title, $date, $description, $status
+
+        if ($state == 'status' && isset($_REQUEST['state']) && trim($_REQUEST['state']) != '') {
+            return  update_field('field_64a42ea6928b7', $_REQUEST['status'], $id);
         }
-        if($state == 'all'){
-            
+        if ($state == 'all') {
+            $rtn_update = [];
+            if (isset($_REQUEST['title']) && trim($_REQUEST['title']) != "") {
+                $rtn_update['title'] =  update_field('field_64a43204928b8', $_REQUEST['title'], $id); //updating title
+            }
+
+            // update_field('field_64a42ea6928b7', false, $post_id); //updating status
+
+            if (isset($_REQUEST['date']) && trim($_REQUEST['date']) != "") {
+
+                $rtn_update['date'] = update_field('field_64a43234928ba', $_REQUEST['date'], $id); //updating date
+            }
+
+            if (isset($_REQUEST['desc']) && trim($_REQUEST['desc']) != "") {
+
+                $rtn_update['desc'] =  update_field('field_64a43217928b9', $_REQUEST['desc'], $id); //updating description
+            }
+
+
+
+            return $rtn_update;
         }
+
+
         
-        
-       // return $id;
     }
 
 
@@ -213,7 +230,7 @@ class Tasks
         if (!is_wp_error($post_id)) {
 
             update_field('field_64a43204928b8', $title, $post_id); //updating title
-           // update_field('field_64a42ea6928b7', false, $post_id); //updating status
+            // update_field('field_64a42ea6928b7', false, $post_id); //updating status
             update_field('field_64a43234928ba', $date, $post_id); //updating date
             update_field('field_64a43217928b9', $description, $post_id); //updating description
 

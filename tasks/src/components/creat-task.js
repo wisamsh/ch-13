@@ -19,10 +19,7 @@ function FormComponent({CloseModal, Key}) {
         setValidation(1);
         return;
     }
-    // Perform any data validation or processing here
-    // Access the form data from the state (formData) and send it to the server or perform other actions
-
-    console.log(formData);
+    
 
     // Clear the form inputs
     setFormData({ title: '', date: '', desc: '' });

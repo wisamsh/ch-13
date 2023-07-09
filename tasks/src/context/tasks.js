@@ -17,11 +17,24 @@ function Provider({ children }) {
         setTasks(response.data.task);
       }, []);
 
-   
+      const updateTask = useCallback((taskId, updatedTaskData) => {
+       
+          setTasks((prevTasks) => {
+            return prevTasks.map((task) => {
+              if (task.task_ID === taskId) {
+                return { ...task, ...updatedTaskData };
+              }
+              return task;
+            });
+          });
+        
+      }, []);
     
     const valueToShare = {
         tasks,
         fetchTasks,
+        updateTask,
+       
         
 
     };

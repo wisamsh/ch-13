@@ -575,3 +575,14 @@ Stack trace:
 [08-Jul-2023 07:09:10 UTC] PHP Parse error:  syntax error, unexpected token ")", expecting variable in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 163
 [08-Jul-2023 07:14:27 UTC] PHP Parse error:  syntax error, unexpected token ",", expecting ")" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 209
 [08-Jul-2023 14:01:34 UTC] PHP Warning:  Undefined array key "status" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 169
+[08-Jul-2023 18:50:43 UTC] PHP Warning:  Undefined array key "state" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 166
+[08-Jul-2023 18:51:03 UTC] PHP Warning:  Undefined array key "state" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 166
+[08-Jul-2023 18:59:37 UTC] PHP Warning:  Undefined array key "state" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 166
+[08-Jul-2023 18:59:56 UTC] PHP Warning:  Undefined array key "state" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 166
+[08-Jul-2023 19:02:30 UTC] PHP Warning:  Undefined array key "state" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 166
+[08-Jul-2023 19:02:59 UTC] PHP Warning:  Undefined array key "state" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 166
+[08-Jul-2023 19:06:43 UTC] PHP Warning:  Undefined array key "state" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 166
+[08-Jul-2023 19:07:03 UTC] PHP Warning:  Undefined array key "state" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 166
+[08-Jul-2023 19:08:57 UTC] PHP Warning:  Undefined array key "state" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 166
+[08-Jul-2023 19:09:07 UTC] PHP Warning:  Undefined array key "state" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 166
+[08-Jul-2023 19:09:23 UTC] PHP Warning:  Undefined array key "state" in C:\xampp\htdocs\channel13\serverside\wp-content\plugins\my-rest-api\classes\tasks.class.php on line 166

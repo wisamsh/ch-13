@@ -5,11 +5,58 @@ import useTasksContext from '../Hooks/use-task-conext'; //HOOK CONTEXT
 import { ApiUri } from "../Constants/Constants";
 import TaskContext from "../Context/tasks";
 import { CiEdit } from "react-icons/ci";
-function TaskFormEdit({ task, id }) {
+function TaskFormEdit({ task, id, Ccommand}) {
 
-    const handleSubmit = (e) => {
+    const { tasks, setUpdateTasks } = useContext(TaskContext);
+  
+    const [formData, setFormData] = useState({
+        title: '',
+        date: '',
+        desc: ''
+      });
+
+      const HandleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          [name]: value
+        }));
+      };
+    
+    const { fetchTasks } = useContext(TaskContext);
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(task.task_date);
+        console.log(e);
+        const url = ApiUri + 'serverside/wp-json/task-api/v1/task/update';
+        const rest = "&id=" + id + "&state=all";
+        const queryParams = new URLSearchParams(formData).toString();
+        const fullUrl = `${url}?${queryParams + rest}`;
+    
+       await axios.get(fullUrl)
+          .then((response) => {
+
+            const updatedTasks = tasks.map((task) => {
+                if (task.task_ID === id) {
+                  return {
+                    ...task,
+                    task_title: formData.title,
+                    task_date: formData.date,
+                    task_description: formData.desc
+                  };
+                }
+                return task;
+              });
+            
+
+
+
+           fetchTasks(); 
+           Ccommand(); // this function for closing the edit form 
+          })
+
+
+
+
 
     }
     const formatDate = (dateString) => {
@@ -20,9 +67,6 @@ function TaskFormEdit({ task, id }) {
     const formattedDate = formatDate(task.task_date);
 
 
-    const HandleChange = (e) => {
-        console.log(e)
-    }
 
 
     return <div className="edittaskbox">
@@ -47,7 +91,7 @@ function TaskFormEdit({ task, id }) {
             <div className="field">
                 <label className="label">Description</label>
                 <div className="control">
-                    <textarea 
+                    <textarea  onChange={HandleChange}
                     className="input" 
                     name="desc" 
                     type="text" 
@@ -57,6 +101,7 @@ function TaskFormEdit({ task, id }) {
                         resize: "none"
                       }}
                     ></textarea>
+                    
                 </div>
             </div>
 

@@ -19,8 +19,8 @@ FormStatus == false ? setFormStatus(true) : setFormStatus(false);
 
 
 return <>
- <CiEdit onClick={handleFormEditOpen} task={task} id={id} className="pointer"/>
- {FormStatus == true ? <TaskEditForm task={task} id={id}/> : ''}
+ <CiEdit onClick={handleFormEditOpen} task={task} id={id}  className="pointer"/>
+ {FormStatus == true ? <TaskEditForm task={task} id={id} Ccommand={handleFormEditOpen}/> : ''}
 </>
 } 
 
