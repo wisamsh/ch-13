@@ -5,7 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import TaskContext from "../Context/tasks";
 function TaskLisSortByt() {
-    const { sortTasksById, sortTasksByTitle, sortTasksByStatus, sortTasksByDate, sortTasksByDescription, toggleSortOrder } = useContext(TaskContext);
+    const { sortTasksById, sortTasksByTitle, sortTasksByStatus, sortTasksByDate, sortTasksByDescription } = useContext(TaskContext);
     const [sortBy, setsortBy] = useState('task_ID');
 
 
@@ -32,9 +32,7 @@ function TaskLisSortByt() {
             case 'task_description':
                 sortTasksByDescription();
                 break;
-            default:
-                sortTasksById();
-                break;
+           
         }
     }
 
@@ -42,13 +40,20 @@ function TaskLisSortByt() {
     return (
         <>
             <FormControl fullWidth>
-                <InputLabel id="sort_by_select-label">Sort By</InputLabel>
+                <InputLabel 
+                id="sort_by_select-label"
+                sx={{
+                    zIndex: '0', 
+                  }}
+                >Sort By</InputLabel>
                 <Select
                     labelId="sort_by_select-label"
                     id="sort_by_select"
                     value={sortBy}
                     label="Filter"
-                    onChange={handleSortChange}>
+                    onChange={handleSortChange}
+                    
+                    >
                     <MenuItem value={'task_ID'}>ID</MenuItem>
                     <MenuItem value={'task_title'}>Title</MenuItem>
                     <MenuItem value={'task_status'}>Status</MenuItem>

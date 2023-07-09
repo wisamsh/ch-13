@@ -14,6 +14,7 @@ const customModalStyles = {
         justifyContent: 'center',
         alignItems: 'center',
         maxHeight: '800px',
+        zIndex: '1000',
     },
   };
 const AddTaskModal = () => {

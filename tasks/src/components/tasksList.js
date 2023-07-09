@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import SortBy from './sort-by';
+import AscDescSort from './asc-desc-Sort';
 function TaskList() {
   const { tasks, filterTasks, fetchTasks } = useTasksContext();
   const [EditStatus, setEditStatus] = useState(false);
@@ -56,7 +57,12 @@ function TaskList() {
         <div className="column">
 
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Status</InputLabel>
+            <InputLabel 
+            id="demo-simple-select-label"
+            sx={{
+              zIndex: '0', 
+            }}
+            >Status</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -74,9 +80,9 @@ function TaskList() {
 
         </div>
         <div className="column"><SortBy/></div>
-        <div className="column">Third column</div>
+        <div className="column"><AscDescSort/></div>
       </div>
-      <div className="task-list">{renderedTasks}</div>;
+      <div className="task-list">{renderedTasks}</div>
     </div>
   );
 }

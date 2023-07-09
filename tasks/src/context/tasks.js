@@ -9,7 +9,7 @@ function Provider({ children }) {
     let uri = ApiUri + 'serverside/wp-json/task-api/v1/task';
 
     const [tasks, setTasks] = useState([]);
-
+    const [sortOrder, setSortOrder] = useState("asc");
     const fetchTasks = useCallback(async () => {
         const response = await axios.get(uri);
         setTasks(response.data.task);
@@ -56,65 +56,67 @@ function Provider({ children }) {
 
     const sortTasksById = useCallback(() => {
         setTasks((prevTasks) => {
-          const sortedTasks = [...prevTasks].sort((a, b) => a.task_ID - b.task_ID);
-          return sortedTasks;
+            const sortedTasks = [...prevTasks].sort((a, b) => a.task_ID - b.task_ID);
+            return sortedTasks;
         });
-      }, []);
+    }, []);
 
 
-      const sortTasksByTitle = useCallback(() => {
+    const sortTasksByTitle = useCallback(() => {
         setTasks((prevTasks) => {
-          const sortedTasks = [...prevTasks].sort((a, b) =>
-            a.task_title.localeCompare(b.task_title)
-          );
-          return sortedTasks;
+            const sortedTasks = [...prevTasks].sort((a, b) =>
+                a.task_title.localeCompare(b.task_title)
+            );
+            return sortedTasks;
         });
-      }, []);
+    }, []);
 
 
-      const sortTasksByStatus = useCallback(() => {
+    const sortTasksByStatus = useCallback(() => {
         setTasks((prevTasks) => {
-          const sortedTasks = [...prevTasks].sort((a, b) => {
-            if (a.task_status === b.task_status) {
-              return 0;
-            } else if (a.task_status) {
-              return -1;
-            } else {
-              return 1;
-            }
-          });
-          return sortedTasks;
+            const sortedTasks = [...prevTasks].sort((a, b) => {
+                if (a.task_status === b.task_status) {
+                    return 0;
+                } else if (a.task_status) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+            });
+            return sortedTasks;
         });
-      }, []);
+    }, []);
 
-      const sortTasksByDate = useCallback(() => {
+    const sortTasksByDate = useCallback(() => {
         setTasks((prevTasks) => {
-          const sortedTasks = [...prevTasks].sort((a, b) => {
-            const dateA = new Date(a.task_date.split('/').reverse().join('/'));
-            const dateB = new Date(b.task_date.split('/').reverse().join('/'));
-            return dateA - dateB;
-          });
-          return sortedTasks;
+            const sortedTasks = [...prevTasks].sort((a, b) => {
+                const dateA = new Date(a.task_date.split('/').reverse().join('/'));
+                const dateB = new Date(b.task_date.split('/').reverse().join('/'));
+                return dateA - dateB;
+            });
+            return sortedTasks;
         });
-      }, []);
-      
-      
-      const sortTasksByDescription = useCallback(() => {
+    }, []);
+
+
+    const sortTasksByDescription = useCallback(() => {
         setTasks((prevTasks) => {
-          const sortedTasks = [...prevTasks].sort((a, b) => {
-            if (a.task_description < b.task_description) {
-              return -1;
-            } else if (a.task_description > b.task_description) {
-              return 1;
-            }
-            return 0;
-          });
-          return sortedTasks;
+            const sortedTasks = [...prevTasks].sort((a, b) => {
+                if (a.task_description < b.task_description) {
+                    return -1;
+                } else if (a.task_description > b.task_description) {
+                    return 1;
+                }
+                return 0;
+            });
+            return sortedTasks;
         });
-      }, []);
-      
-      
-      
+    }, []);
+
+    const sortascdescTasks = () => {
+        setTasks((prevTasks) => [...prevTasks].reverse());
+    };
+
 
     const valueToShare = {
         tasks,
@@ -126,6 +128,8 @@ function Provider({ children }) {
         sortTasksByStatus,
         sortTasksByDate,
         sortTasksByDescription,
+        sortascdescTasks
+
     };
 
     return (
