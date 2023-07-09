@@ -8,7 +8,7 @@ import TaskContext from "./Context/tasks";
 function App() {
   const { fetchTasks } = useContext(TaskContext);
 
-  //fixing callback fetchbook (rerender)
+ 
   const StablingfetchTasks = useCallback(fetchTasks, []);
 
 

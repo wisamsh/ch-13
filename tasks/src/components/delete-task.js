@@ -7,14 +7,14 @@ import TaskContext from "../Context/tasks";
 
 function DeleteTask({id}) {
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const { fetchTasks } = useContext(TaskContext);
+  const { fetchTasks, filterTasks } = useContext(TaskContext);
   const handleDelete = async () => {
     
     const url = ApiUri + 'serverside/wp-json/task-api/v1/task/delete?id=' + id;
 
     try {
       const response = await axios.get(url);
-      fetchTasks();
+      filterTasks('uncompleted');
       
     } catch (error) {
       console.error(error); 
