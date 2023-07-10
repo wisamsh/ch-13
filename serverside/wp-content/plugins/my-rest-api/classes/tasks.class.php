@@ -76,7 +76,6 @@ class Tasks
         $deleted_task = get_field('field_64a522b78065f', $id);
 
         // soft deletation and non data lost :
-
         if (!$deleted_task) {
             $ARRrtn = array(
                 'task_ID' => $task_ID,
@@ -140,9 +139,6 @@ class Tasks
         }
     }
 
-
-
-
     // Task REST API callback function
     public function Task_api_callback()
     {
@@ -163,7 +159,7 @@ class Tasks
     protected function UpdateTask($id)
     {
         $rtn = false;
-        $state = $_REQUEST['state']; //$title, $date, $description, $status
+        $state = $_REQUEST['state'];
 
         if ($state == 'status' && isset($_REQUEST['state']) && trim($_REQUEST['state']) != '') {
             return  update_field('field_64a42ea6928b7', $_REQUEST['status'], $id);
@@ -173,8 +169,6 @@ class Tasks
             if (isset($_REQUEST['title']) && trim($_REQUEST['title']) != "") {
                 $rtn_update['title'] =  update_field('field_64a43204928b8', $_REQUEST['title'], $id); //updating title
             }
-
-            // update_field('field_64a42ea6928b7', false, $post_id); //updating status
 
             if (isset($_REQUEST['date']) && trim($_REQUEST['date']) != "") {
 
@@ -190,9 +184,6 @@ class Tasks
 
             return $rtn_update;
         }
-
-
-        
     }
 
 
@@ -283,8 +274,6 @@ class Tasks
         $id = $_REQUEST['id'];
         if (isset($id) && $id != "") {
             $rtn = $this->DeleteTask($id);
-
-
 
             $response = array(
                 'task' =>  $rtn = true ? 'success' : 'error',

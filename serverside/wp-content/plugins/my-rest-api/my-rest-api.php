@@ -12,12 +12,11 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-require_once( __DIR__ . '/classes/tasks.class.php' );
+require_once(__DIR__ . '/classes/tasks.class.php');
 
-
-function my_rest_api_init() {
-     new Tasks(); // Instantiate the class
+function my_rest_api_init()
+{
+    new Tasks();
 }
 
 add_action('rest_api_init', 'my_rest_api_init');
-
