@@ -21,8 +21,7 @@ function TaskShow({ task }) {
         const url = ApiUri + 'serverside/wp-json/task-api/v1/task/update?id=' + id + '&state=status' + '&status=' + status;
 
         try {
-            // 
-            //console.log("checked:", response);
+                       
             setChecked(e.target.checked);
             const response = await axios.get(url);
 

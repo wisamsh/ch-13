@@ -11,7 +11,7 @@ function TaskEdit({ task, id }) {
  
 const [FormStatus , setFormStatus] = useState(false)
 const handleFormEditOpen = () => {
-//console.log(task, id);
+
 
 FormStatus == false ? setFormStatus(true) : setFormStatus(false);
 
